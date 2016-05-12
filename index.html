@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!--LevelUpTuts Tutorials-->
+<!--Currently on #4-->
 <html>
   <head>
     <script src="build/react.js"></script>
@@ -11,14 +12,25 @@
     <div id="area">
       <script type="text/babel">
         var HelloWorld = React.createClass({
+          //Sets a type for the prop given
+          propTypes: {
+            name: React.PropTypes.string.isRequired //Makes this propType required
+          },
+          //Sets a default prop
+          getDefaultProps: function() {
+            return {
+              name: 'Chang'
+            }
+          },
+
           render: function() {
             return (
-              <h1>Hello World</h1>
+              <h1>Hello {this.props.name}</h1>
             )
           }
         })
         ReactDOM.render(
-          <HelloWorld />,
+          <HelloWorld name='Dustin'/>,
           document.getElementById('area')
         );
       </script>
