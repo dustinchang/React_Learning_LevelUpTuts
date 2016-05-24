@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--LevelUpTuts Tutorials-->
-<!--Currently on #4-->
+<!--Currently on #6-->
 <html>
   <head>
     <script src="build/react.js"></script>
@@ -23,11 +23,26 @@
             }
           },
 
+          getInitialState: function() {
+            return {
+              value: 1
+            }
+          },
+
+          componentDidMount() {
+            this.setState({
+              value: this.state.value + 9
+            });
+          },
+
           render: function() {
             var greeting = "World";
             if(this.props.isPerson) greeting = (<Person name={this.props.name} />)
             return (
-              <h1>Hello {greeting}</h1>
+              <div>
+                <h1>Hello {greeting}</h1>
+                {this.state.value}
+              </div>
             )
           }
         });
